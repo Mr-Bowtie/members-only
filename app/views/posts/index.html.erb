@@ -4,6 +4,13 @@
 
 <% @posts.each do |post| %>
   <p class="title is-6"><%= post.title %></p>
+
+  <% if user_signed_in? %>
+    <p class="subtitle is-7">Author: <%= post.user.name %></p>
+  <% else %>
+    <p class="subtitle is-7">Author: Anonymous</p>
+  <% end %>
+
   <p><%= post.body %></p><br />
 <% end %>
 <br>
